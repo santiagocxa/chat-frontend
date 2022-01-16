@@ -1,0 +1,65 @@
+.View {
+  border: solid 1px;
+  grid-column: 2/5;
+  grid-row: 1/5;
+  display: flex;
+  flex-direction: column;
+}
+
+.View__title {
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.View__title img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: solid 1px;
+  margin-right: 10px;
+}
+
+.View__container {
+  overflow-y: scroll;
+  padding-bottom: 30px;
+}
+.View__message {
+  border: solid 1px;
+  width: auto;
+  padding: 0;
+  margin: 0 10px;
+  margin-top: 10px;
+  padding-left: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.View__message h4 {
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.View__message__info {
+  padding: 0;
+  margin: 0;
+  padding-left: 10px;
+  margin-top: 5px;
+  display: inline-block;
+  max-width: 300px;
+  text-align: left;
+}
+
+.View__message__date {
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+  display: flex;
+  justify-content: end;
+  padding-right: 20px;
+}

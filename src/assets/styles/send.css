@@ -1,0 +1,29 @@
+.Send {
+  margin: 0;
+  border: solid 1px;
+  grid-column: 2/4;
+  grid-row: 5/5;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+
+.Send__form {
+  width: 100%;
+  margin: 0 20px;
+  height: auto;
+}
+
+.Send__text {
+  width: 85%;
+  margin-right: 5px;
+  border-radius: 5px;
+  height: 30px;
+  text-align-last: right;
+  padding: 0 20px;
+}
+
+.Send__button {
+  height: 30px;
+  border-radius: 5px;
+}
