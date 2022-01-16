@@ -1,0 +1,8 @@
+.App {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0px;
+  grid-auto-rows: minmax(80px, auto);
+  height: 70vh;
+  margin-top: 15vh;
+}

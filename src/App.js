@@ -1,9 +1,15 @@
+import List from './components/list';
+import Send from './components/send';
+import View from './components/view';
+
 import './App.css';
 
 function App() {
   return (
     <div className='App'>
-      <h1>hello world</h1>
+      <List></List>
+      <View></View>
+      <Send></Send>
     </div>
   );
 }
