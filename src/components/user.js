@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import '../assets/styles/list.css';
+import '../assets/styles/user.css';
 
-const List = () => {
+const User = () => {
   const [user, setUser] = useState([
     {
       _id: '1',
@@ -46,4 +46,4 @@ const List = () => {
   );
 };
 
-export default List;
+export default User;

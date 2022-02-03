@@ -4,7 +4,7 @@ import '../assets/styles/view.css';
 const View = () => {
   const message = [
     {
-      _id: '61d9c8459e91871aec6cc1e4',
+      _id: '9',
       chat: '61d8f65f7b9eb88c5d6934ff',
       user: {
         _id: '61d8f5b57b9eb88c5d6934f3',
@@ -16,7 +16,59 @@ const View = () => {
       __v: 0,
     },
     {
-      _id: '61d9cb17ce7ac735e7f42d8c',
+      _id: '7',
+      chat: '61d8f65f7b9eb88c5d6934ff',
+      user: {
+        _id: '61d8ddffa2581e7f948218be',
+        name: 'carlos',
+        __v: 0,
+      },
+      message:
+        'Hola, como estasfasfad  fa da s fsa df as df asd f as df sa df as fas d a sd fa sdf as ',
+      date: '2022-01-08T17:34:15.819Z',
+      __v: 0,
+    },
+    {
+      _id: '6',
+      chat: '61d8f65f7b9eb88c5d6934ff',
+      user: {
+        _id: '61d8ddffa2581e7f948218be',
+        name: 'carlos',
+        __v: 0,
+      },
+      message:
+        'Hola, como estasfasfad  fa da s fsa df as df asd f as df sa df as fas d a sd fa sdf as ',
+      date: '2022-01-08T17:34:15.819Z',
+      __v: 0,
+    },
+    {
+      _id: '5',
+      chat: '61d8f65f7b9eb88c5d6934ff',
+      user: {
+        _id: '61d8ddffa2581e7f948218be',
+        name: 'carlos',
+        __v: 0,
+      },
+      message:
+        'Hola, como estasfasfad  fa da s fsa df as df asd f as df sa df as fas d a sd fa sdf as ',
+      date: '2022-01-08T17:34:15.819Z',
+      __v: 0,
+    },
+    {
+      _id: '4',
+      chat: '61d8f65f7b9eb88c5d6934ff',
+      user: {
+        _id: '61d8ddffa2581e7f948218be',
+        name: 'carlos',
+        __v: 0,
+      },
+      message:
+        'Hola, como estasfasfad  fa da s fsa df as df asd f as df sa df as fas d a sd fa sdf as ',
+      date: '2022-01-08T17:34:15.819Z',
+      __v: 0,
+    },
+    {
+      _id: '2',
       chat: '61d8f65f7b9eb88c5d6934ff',
       user: {
         _id: '61d8ddffa2581e7f948218be',
