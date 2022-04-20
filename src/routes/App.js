@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import Layout from '../components/layout';
 import Chats from '../components/chats';
 import User from '../components/user';
 import View from '../components/view';
@@ -7,12 +8,14 @@ import View from '../components/view';
 const App = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<User />} />
-        <Route path='chat/:chats' element={<Chats />}>
-          <Route path='messages/:idMessage' element={<View />} />
-        </Route>
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path='/' element={<User />} />
+          <Route path='chat/:userId' element={<Chats />}>
+            <Route path='messages/:messageId' element={<View />} />
+          </Route>
+        </Routes>
+      </Layout>
     </BrowserRouter>
   );
 };

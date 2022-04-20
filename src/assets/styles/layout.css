@@ -1,0 +1,17 @@
+.Layout {
+  display: flex;
+  justify-content: center;
+}
+
+.Layout-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0px;
+  grid-auto-rows: minmax(80px, auto);
+  height: 70vh;
+  margin-top: 15vh;
+
+  max-width: 600px;
+  border: solid 1px;
+  margin-top: 100px;
+}

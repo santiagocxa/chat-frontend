@@ -1,35 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import useGetData from '../hooks/useGetData';
 import { Link } from 'react-router-dom';
 import '../assets/styles/user.css';
 
 const User = () => {
-  const [user, setUser] = useState([
-    {
-      _id: '1',
-      name: 'Pedro',
-    },
-    {
-      _id: '2',
-      name: 'Carlos',
-    },
-    {
-      _id: '3',
-      name: 'Carlos',
-    },
-    {
-      _id: '4',
-      name: 'Carlos',
-    },
-  ]);
-  const API = 'http://localhost:3001/user/';
-  useEffect(() => {
-    async function callUser() {
-      let response = await fetch(API);
-      response = await response.json();
-      setUser(response.body);
-    }
-    callUser();
-  }, []);
+  const API = 'http://localhost:8080/user/';
+  const user = useGetData(API);
   return (
     <>
       <div className='List'>

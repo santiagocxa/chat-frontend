@@ -1,32 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import useGetData from '../hooks/useGetData';
 import { Link, useParams, Outlet } from 'react-router-dom';
+import '../assets/styles/chat.css';
 
 const Chats = () => {
-  const [chatsList, setChatsList] = useState([]);
-  const { chats } = useParams();
-  const API = `http://localhost:3001/chat/${chats}`;
-  useEffect(() => {
-    async function callChats() {
-      let response = await fetch(API);
-      response = await response.json();
-      setChatsList(response.body);
-    }
-    callChats();
-  }, []);
+  const { userId } = useParams();
+  const API = `http://localhost:8080/chat/${userId}`;
+  const chatsList = useGetData(API);
+
   return (
     <>
-      <ul>
-        {chatsList.map((item) => (
-          <li key={item._id}>
-            <Link to={`messages/${item._id}`}>
-              {item.users.map(
-                (user) => user._id !== chats && user.name
-              )}
+      <section className='Chat-list'>
+        <Link to='/'>back</Link>
+        <ul>
+          {chatsList.map((item) => (
+            <Link key={item._id} to={`messages/${item._id}`}>
+              <li>
+                {item.users.map(
+                  (user) => user._id !== userId && user.name
+                )}
+              </li>
             </Link>
-          </li>
-        ))}
-      </ul>
-      <Outlet />
+          ))}
+        </ul>
+      </section>
+      <Outlet context={[userId]} />
     </>
   );
 };

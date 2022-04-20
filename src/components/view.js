@@ -1,98 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import '../assets/styles/view.css';
+import React from 'react';
+import { useOutletContext, useParams } from 'react-router-dom';
+import useGetData from '../hooks/useGetData';
 import Send from './send';
+import deleteMessage from '../assets/utils/deleteMessage';
+import socket from '../assets/utils/socket';
 
-const View = (props) => {
-  const [message, setMessage] = useState([
-    {
-      _id: '9',
-      chat: '61d8f65f7b9eb88c5d6934ff',
-      user: {
-        _id: '61d8f5b57b9eb88c5d6934f3',
-        name: 'Sara',
-        __v: 0,
-      },
-      message: 'Hola como estas',
-      date: '2022-01-08T17:22:13.398Z',
-      __v: 0,
-    },
-    {
-      _id: '7',
-      chat: '61d8f65f7b9eb88c5d6934ff',
-      user: {
-        _id: '61d8ddffa2581e7f948218be',
-        name: 'carlos',
-        __v: 0,
-      },
-      message:
-        'Hola, como estasfasfad  fa da s fsa df as df asd f as df sa df as fas d a sd fa sdf as ',
-      date: '2022-01-08T17:34:15.819Z',
-      __v: 0,
-    },
-    {
-      _id: '6',
-      chat: '61d8f65f7b9eb88c5d6934ff',
-      user: {
-        _id: '61d8ddffa2581e7f948218be',
-        name: 'carlos',
-        __v: 0,
-      },
-      message:
-        'Hola, como estasfasfad  fa da s fsa df as df asd f as df sa df as fas d a sd fa sdf as ',
-      date: '2022-01-08T17:34:15.819Z',
-      __v: 0,
-    },
-    {
-      _id: '5',
-      chat: '61d8f65f7b9eb88c5d6934ff',
-      user: {
-        _id: '61d8ddffa2581e7f948218be',
-        name: 'carlos',
-        __v: 0,
-      },
-      message:
-        'Hola, como estasfasfad  fa da s fsa df as df asd f as df sa df as fas d a sd fa sdf as ',
-      date: '2022-01-08T17:34:15.819Z',
-      __v: 0,
-    },
-    {
-      _id: '4',
-      chat: '61d8f65f7b9eb88c5d6934ff',
-      user: {
-        _id: '61d8ddffa2581e7f948218be',
-        name: 'carlos',
-        __v: 0,
-      },
-      message:
-        'Hola, como estasfasfad  fa da s fsa df as df asd f as df sa df as fas d a sd fa sdf as ',
-      date: '2022-01-08T17:34:15.819Z',
-      __v: 0,
-    },
-    {
-      _id: '2',
-      chat: '61d8f65f7b9eb88c5d6934ff',
-      user: {
-        _id: '61d8ddffa2581e7f948218be',
-        name: 'carlos',
-        __v: 0,
-      },
-      message:
-        'Hola, como estasfasfad  fa da s fsa df as df asd f as df sa df as fas d a sd fa sdf as ',
-      date: '2022-01-08T17:34:15.819Z',
-      __v: 0,
-    },
-  ]);
-  const { idMessage } = useParams();
-  const API = `http://localhost:3001/message?chat=${idMessage}`;
-  useEffect(() => {
-    async function callMessage() {
-      let response = await fetch(API);
-      response = await response.json();
-      setMessage(response.body);
-    }
-    callMessage();
-  }, [API]);
+import '../assets/styles/view.css';
+
+const View = () => {
+  const [userId] = useOutletContext();
+  const { messageId } = useParams();
+
+  const API = `http://localhost:8080/message?chat=${messageId}`;
+
+  const message = useGetData(API);
+
+  socket.on('message', (message) => {
+    console.log('message: ', message);
+    return () => socket.off();
+  });
 
   return (
     <>
@@ -102,7 +28,7 @@ const View = (props) => {
             src='https://img.icons8.com/dotty/344/person-male.png'
             alt='user'
           />
-          <h3>{}</h3>
+          <h3>{`usuario`}</h3>
         </div>
         <div className='View__container'>
           {message.map((item) => (
@@ -112,11 +38,14 @@ const View = (props) => {
               <p className='View__message__date'>
                 {new Date(item.date).toLocaleTimeString()}
               </p>
+              <button onClick={() => deleteMessage(item._id)}>
+                Eliminar
+              </button>
             </div>
           ))}
         </div>
       </div>
-      <Send />
+      <Send userId={userId} messageId={messageId} />
     </>
   );
 };
